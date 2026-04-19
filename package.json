@@ -1,0 +1,11 @@
+{
+  "name": "noreels-insta-mvp",
+  "version": "0.2.0",
+  "description": "Distraction-free Instagram post manager MVP",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  }
+}
