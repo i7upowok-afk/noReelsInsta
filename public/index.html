@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoReelsInsta MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>NoReelsInsta (MVP)</h1>
+      <p class="sub">Manage Instagram posting without feed/reels distractions.</p>
+
+      <section class="card">
+        <h2>1) Connect Instagram</h2>
+        <p class="small">Supports Instagram accounts connected to a Facebook Page (Business/Creator publishing API flow).</p>
+        <p id="config-warning" class="warning hidden"></p>
+        <p id="oauth-error" class="warning hidden"></p>
+        <div class="actions">
+          <button id="connect-btn">Connect with Facebook</button>
+          <button id="check-connection">Verify connection</button>
+          <button id="disconnect-btn">Disconnect</button>
+        </div>
+        <p id="session-text"></p>
+        <label for="page-select">Linked Facebook page to post from</label>
+        <select id="page-select"></select>
+      </section>
+
+      <section class="card">
+        <h2>2) Draft a post</h2>
+        <form id="draft-form">
+          <label>Public image URL
+            <input type="url" id="imageUrl" required placeholder="https://..." />
+          </label>
+          <label>Caption
+            <textarea id="caption" rows="4" maxlength="2200" required></textarea>
+          </label>
+          <button type="submit">Save draft</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>3) Draft queue</h2>
+        <ul id="drafts" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>4) Published posts (read-only)</h2>
+        <button id="refresh-posts">Refresh published posts</button>
+        <p class="small">Instagram API limitation: editing a published feed post is not supported via API.</p>
+        <ul id="posts" class="list"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
