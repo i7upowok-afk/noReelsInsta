@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoReelsInsta MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>NoReelsInsta (MVP)</h1>
+      <p class="sub">Manage Instagram posting without feed/reels distractions.</p>
+
+      <section class="card">
+        <h2>1) Connect Instagram</h2>
+        <p class="small">Paste your Instagram profile URL to connect this app to your account context.</p>
+        <p class="small">To publish via API, also provide Instagram Graph Access Token + IG User ID (optional fields below).</p>
+        <form id="connect-form">
+          <label>Instagram profile URL
+            <input type="url" id="instagramUrl" required placeholder="https://instagram.com/your_username" />
+          </label>
+          <label>Instagram Graph access token (optional, needed for publishing)
+            <input type="text" id="accessToken" placeholder="EAAG..." />
+          </label>
+          <label>Instagram User ID (optional, needed for publishing)
+            <input type="text" id="igUserId" placeholder="178414..." />
+          </label>
+          <div class="actions">
+            <button type="submit">Connect with Instagram URL</button>
+            <button type="button" id="check-connection">Verify API connection</button>
+            <button type="button" id="disconnect-btn">Disconnect</button>
+          </div>
+        </form>
+        <p id="session-text"></p>
+      </section>
+
+      <section class="card">
+        <h2>2) Draft a post</h2>
+        <form id="draft-form">
+          <label>Public image URL
+            <input type="url" id="imageUrl" required placeholder="https://..." />
+          </label>
+          <label>Caption
+            <textarea id="caption" rows="4" maxlength="2200" required></textarea>
+          </label>
+          <button type="submit">Save draft</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>3) Draft queue</h2>
+        <ul id="drafts" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>4) Published posts (read-only)</h2>
+        <button id="refresh-posts">Refresh published posts</button>
+        <p class="small">Instagram API limitation: editing a published feed post is not supported via API.</p>
+        <ul id="posts" class="list"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
